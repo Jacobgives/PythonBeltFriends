@@ -6,7 +6,7 @@ def index(request):
     logged_user=User.objects.get(id=request.session['user_id'])
     context={
     'friends':User.objects.filter(mapping=logged_user),
-    'notfriends':User.objects.exclude(mapping=logged_user)
+    'notfriends':User.objects.exclude(mapping=logged_user).exclude(id=request.session['user_id'])
         }
     return render(request, 'friends/index.html', context)
 def show(request, id):
