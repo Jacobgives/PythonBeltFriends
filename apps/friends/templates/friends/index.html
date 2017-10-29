@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Friends</title>
+  </head>
+  <body>
+    <h4><a href={% url 'login:home' %}>Logout</a></h4>
+
+    <table>
+
+      <h3>Your Friends</h3>
+      <tr>
+        <th>Alias </th>
+        <th> Action </th>
+      </tr>
+      {%for friend in friends%}
+        <tr>
+          <td>{{friend.name}}</td>
+          <td><a href= "{% url 'friends:show' id=friend.id  %}" method="post">View Friend</a></td>
+          <td><a href= "{% url 'friends:remove' id=friend.id  %}" method="post">Remove Friend</a></td>
+      {%endfor%}
+      </tr>
+    </table>
+    <table>
+      <h3>friends planned by other users</h3>
+      <tr>
+        <th>Item</th>
+        <th>Added_By</th>
+        <th>Date_Added</th>
+        <th>Action</th>
+      </tr>
+      {%for friend in notfriends%}
+        <tr>
+          <td><a href={% url 'friends:show' id=friend.id %} method = "post">{{friend.name}}</a></td>
+          <td><a href={% url 'friends:add' id=friend.id  %} method="post">Add as Friend</a></td>
+      {%endfor%}
+      </tr>
+    </table>
+  </body>
+</html>

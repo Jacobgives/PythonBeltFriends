@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Login and Registration</title>
+  </head>
+  <body>
+    <div>
+      {%for message in messages%}
+        <p>{{message}}</p>
+      {%endfor%}
+    </div>
+    <table>
+      <form class="" action="register/" method="post">
+        {%csrf_token%}
+        <tr>
+          <td>Registration</td>
+        </tr>
+        <tr>
+          <td>Name: </td>
+          <td><input type="text" name="name" value=""></td>
+        </tr>
+        <tr>
+          <td>Email: </td>
+          <td><input type="text" name="email" value=""></td>
+        </tr>
+        <tr>
+          <td>Alias: </td>
+          <td><input type="text" name="alias" value=""></td>
+        </tr>
+        <tr>
+          <p>*pass should contain at least 8 characters.</p>
+        </tr>
+        <tr>
+          <td>Password: </td>
+          <td><input type="password" name="p" value=""></td>
+        </tr>
+        <tr>
+          <td>confirm pw: </td>
+          <td><input type="password" name="cp" value=""></td>
+        </tr>
+        <tr>
+        <td><input type="submit" value="Register"></td>
+        </tr>
+      </form>
+    </table>
+    <table>
+      <form class="" action="login/" method="post">
+        {%csrf_token%}
+        <tr>
+          <td>Login</td>
+        </tr>
+        <tr>
+          <td>email: </td>
+          <td><input type="text" name="lemail" value=""></td>
+        </tr>
+        <tr>
+          <td>Password: </td>
+          <td><input type="password" name="lp" value=""></td>
+        </tr>
+        <tr>
+          <td><input type="submit" name="" value="Login"></td>
+        </tr>
+      </form>
+    </table>
+  </body>
+</html>
